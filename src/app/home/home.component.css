@@ -1,0 +1,44 @@
+:host{
+    display: flex;
+}
+
+.content{
+    display: flex;
+    flex: 1 100%;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.painting{
+    max-width: 40%;
+    margin: 20px 3%;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.painting:hover{
+    opacity: .7;
+}
+
+.categories-list-header{
+    font-size: 1.7rem !important;
+    margin-bottom: 10px !important;
+    padding-bottom: 40px !important;
+    border-bottom: 2px solid #3d3d3d;
+}
+
+.category-title{
+    font-size: 1.4rem !important;
+}
+
+.category-icon{
+    font-size: 2rem !important;
+}
+
+.active{
+    background-color: #7898f8;
+}
+
+.active:hover{
+    background-color: #7898f8;
+}

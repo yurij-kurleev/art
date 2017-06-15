@@ -1,0 +1,37 @@
+<md-nav-list class="categories-list">
+    <h3 md-subheader class="categories-list-header">Categories</h3>
+    <md-list-item [ngClass]="{'active': categoriesState[0]}"
+                  (click)="toggleCategoryState(0)">
+        <md-icon md-list-icon class="category-icon">brush</md-icon>
+        <h4 md-line class="category-title">Paintings</h4>
+    </md-list-item>
+    <md-list-item [ngClass]="{'active': categoriesState[1]}"
+                  (click)="toggleCategoryState(1)">
+        <md-icon md-list-icon class="category-icon">account_balance</md-icon>
+        <h4 md-line class="category-title">Sculptures</h4>
+    </md-list-item>
+    <md-list-item [ngClass]="{'active': categoriesState[2]}"
+                  (click)="toggleCategoryState(2)">
+        <md-icon md-list-icon class="category-icon">photo</md-icon>
+        <h4 md-line class="category-title">Photos</h4>
+    </md-list-item>
+</md-nav-list>
+<div class="content">
+    <md-card class="painting" *ngFor="let card of cards">
+        <md-card-header>
+            <md-card-title>Название картины</md-card-title>
+            <md-card-subtitle>Способ рисования</md-card-subtitle>
+        </md-card-header>
+        <img md-card-image src="../../assets/images/nastol.com.ua-118626.jpg">
+        <md-card-content>
+            <p>
+                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                bred for hunting.
+            </p>
+        </md-card-content>
+    </md-card>
+</div>
+
+
+

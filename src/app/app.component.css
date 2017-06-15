@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+.my-container{
+    font-family: 'Roboto', cursive;
+}
+
+.h1-header{
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+}
+
+.top-menu{
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 20%;
+}
+
+.menu-link{
+    text-decoration: none;
+    color: #000;
+    text-transform: uppercase;
+    flex: 1;
+}
+
+.menu-link:after {
+    content: '';
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0;
+    background: transparent;
+    transition: width .5s ease, background-color .5s ease;
+}
+.menu-link:hover:after {
+    width: 100%;
+    background: #429eff;
+}

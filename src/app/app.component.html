@@ -1,3 +1,12 @@
-<h1>
-  {{title}}
-</h1>
+<div class="my-container">
+  <h1 class="h1-header"> Elena Schekina</h1>
+  <div class="top-menu">
+    <a href="home" class="menu-link">Home</a>
+    <a href="about" class="menu-link">About</a>
+    <a href="exhibitions" class="menu-link">Exhibitions</a>
+    <a href="contacts" class="menu-link">Contacts</a>
+  </div>
+  <div class="container" id="main-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
