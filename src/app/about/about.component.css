@@ -1,0 +1,17 @@
+.container{
+    margin: 25px 15%;
+}
+
+.description{
+    font-size: 1.4rem;
+}
+
+.photo-block{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.photo-block > img{
+    max-width: 85%;
+    border-radius: 5px;
+}

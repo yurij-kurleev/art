@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 
 .my-container{
-    font-family: 'Roboto', cursive;
+    font-family: 'Roboto', sans-serif;
 }
 
 .h1-header{
@@ -13,8 +13,6 @@
 .top-menu{
     font-size: 2rem;
     text-align: center;
-    display: flex;
-    justify-content: space-around;
     margin: 0 20%;
 }
 
@@ -22,7 +20,8 @@
     text-decoration: none;
     color: #000;
     text-transform: uppercase;
-    flex: 1;
+    display: inline-block;
+    margin: 0 3%;
 }
 
 .menu-link:after {

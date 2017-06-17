@@ -13,11 +13,16 @@ import {CommonModule} from '@angular/common';
 import {PreloadAllModules, RouterModule} from '@angular/router';
 import {ROUTES} from './app.routes';
 import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ExhibitionsComponent } from './exhibitions/exhibitions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    AboutComponent,
+    ExhibitionsComponent
   ],
   imports: [
     BrowserModule,
