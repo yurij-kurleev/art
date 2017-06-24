@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ExhibitionService} from '../shared/exhibition.service';
+import {Exhibition} from '../entites/exhibition';
 
 @Component({
   selector: 'app-exhibitions',
@@ -6,12 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./exhibitions.component.css']
 })
 export class ExhibitionsComponent implements OnInit {
-  public exhibitions = ['exhibition 1', 'exhibition 2', 'exhibition 3', 'exhibition 4',
-    'exhibition 5'];
+  public exhibitions: Exhibition[];
 
-  constructor() { }
+  constructor(private _exhibitionService: ExhibitionService) { }
 
   ngOnInit() {
+    this._exhibitionService.getAll()
+        .then((exhibitions) => {
+            this.exhibitions = exhibitions;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
   }
 
 }

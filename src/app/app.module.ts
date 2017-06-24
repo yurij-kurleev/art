@@ -15,6 +15,8 @@ import {ROUTES} from './app.routes';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ExhibitionsComponent } from './exhibitions/exhibitions.component';
+import {ExhibitionService} from './shared/exhibition.service';
+import {HttpService} from './shared/http.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,7 @@ import { ExhibitionsComponent } from './exhibitions/exhibitions.component';
     MdListModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
-  providers: [],
+  providers: [ExhibitionService, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,8 @@
 <div class="exhibitions-block">
   <div class="exhibition" *ngFor="let exhibition of exhibitions">
-    <div class="title">"Oksana Mas. Get together"</div>
-    <div class="place">Istambul, Turkey</div>
-    <div class="date">Дата начала: 7 мая 2017 г.</div>
-    <div class="date">Дата окончания: 7 мая 2017 г.</div>
+    <div class="title">"{{exhibition.title}}"</div>
+    <div class="place">{{exhibition.place}}</div>
+    <div class="date">{{exhibition.fromDate * 1000 | date}}</div>
+    <div class="date">{{exhibition.tillDate * 1000| date}}</div>
   </div>
 </div>
