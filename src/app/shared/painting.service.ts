@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import {HttpService} from './http.service';
 import {Painting} from '../entites/painting';
+import {AbstractService} from './abstract.service';
 
 @Injectable()
-export class PaintingService {
+export class PaintingService extends AbstractService {
 
-  constructor(private _httpService: HttpService) { }
-
-  public getPaintings(): Promise<Painting[]> {
+  public getPaintings(limit: number, offset: number,
+                      categoryId: number): Promise<Painting[]> {
 
     return null;
   }

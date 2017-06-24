@@ -18,6 +18,7 @@ import { ExhibitionsComponent } from './exhibitions/exhibitions.component';
 import {ExhibitionService} from './shared/exhibition.service';
 import {HttpService} from './shared/http.service';
 import {PaintingService} from './shared/painting.service';
+import {AbstractService} from "./shared/abstract.service";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,12 @@ import {PaintingService} from './shared/painting.service';
     MdListModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
-  providers: [ExhibitionService, HttpService, PaintingService],
+  providers: [
+    ExhibitionService,
+    HttpService,
+    PaintingService,
+    AbstractService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
