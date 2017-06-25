@@ -25,6 +25,9 @@ export class PaintingService extends AbstractService {
         return Promise.resolve(paintings);
       })
       .catch(error => {
+        if (error.status === 404) {
+          return Promise.reject([]);
+        }
         return Promise.reject(error);
       });
   }
