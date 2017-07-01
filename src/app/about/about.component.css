@@ -15,3 +15,16 @@
     max-width: 85%;
     border-radius: 5px;
 }
+
+.author{
+  text-align: right;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.quote{
+  font-style: italic;
+  font-size: 1rem;
+}
