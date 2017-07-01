@@ -17,8 +17,9 @@ import { AboutComponent } from './about/about.component';
 import { ExhibitionsComponent } from './exhibitions/exhibitions.component';
 import {ExhibitionService} from './shared/exhibition.service';
 import {HttpService} from './shared/http.service';
-import {PaintingService} from './shared/painting.service';
-import {AbstractService} from "./shared/abstract.service";
+import {CreationService} from './shared/creation.service';
+import {CategoryService} from './shared/category.service';
+import {AbstractService} from './shared/abstract.service';
 
 @NgModule({
   declarations: [
@@ -48,8 +49,9 @@ import {AbstractService} from "./shared/abstract.service";
   providers: [
     ExhibitionService,
     HttpService,
-    PaintingService,
-    AbstractService
+    CreationService,
+    AbstractService,
+    CategoryService
   ],
   bootstrap: [AppComponent]
 })

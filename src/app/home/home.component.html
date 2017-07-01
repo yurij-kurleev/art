@@ -1,30 +1,19 @@
 <md-nav-list class="categories-list">
     <h3 md-subheader class="categories-list-header">Categories</h3>
-    <md-list-item [ngClass]="{'active': categoriesState[0]}"
-                  (click)="toggleCategoryState(0)">
+    <md-list-item [ngClass]="{'active': category.isActive}"
+                  (click)="toggleCategoryState(category)" *ngFor="let category of categories">
         <md-icon md-list-icon class="category-icon">brush</md-icon>
         <h4 md-line class="category-title">Paintings</h4>
-    </md-list-item>
-    <md-list-item [ngClass]="{'active': categoriesState[1]}"
-                  (click)="toggleCategoryState(1)">
-        <md-icon md-list-icon class="category-icon">account_balance</md-icon>
-        <h4 md-line class="category-title">Sculptures</h4>
-    </md-list-item>
-    <md-list-item [ngClass]="{'active': categoriesState[2]}"
-                  (click)="toggleCategoryState(2)">
-        <md-icon md-list-icon class="category-icon">photo</md-icon>
-        <h4 md-line class="category-title">Photos</h4>
     </md-list-item>
 </md-nav-list>
 <div class="content">
     <md-card class="painting" *ngFor="let painting of paintings">
         <md-card-header>
             <md-card-title>{{painting.name}}</md-card-title>
-            <md-card-subtitle>Способ рисования</md-card-subtitle>
         </md-card-header>
         <img md-card-image src="{{painting.img_url}}">
         <md-card-content>
-            <p>{painting.description}</p>
+            <p>{{painting.description}}</p>
         </md-card-content>
     </md-card>
 </div>

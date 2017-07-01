@@ -1,5 +1,5 @@
 import {Category} from './category';
-export interface IPainting {
+export interface ICreation {
   id: number;
   name: string;
   description: string;
@@ -7,7 +7,7 @@ export interface IPainting {
   category: Category;
 }
 
-export class Painting implements IPainting {
+export class Creation implements ICreation {
   id: number;
   name: string;
   description: string;
