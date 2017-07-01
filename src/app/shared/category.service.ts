@@ -6,11 +6,11 @@ import {Category} from '../entites/category';
 export class CategoryService extends AbstractService {
 
   public getAll(): Promise<Category[]> {
-    return this.httpService.get(this.baseUrl + 'categories')
+    return this.httpService.get(this.baseUrl + 'category/getAll')
       .then((response) => {
         const categories: Category[] = [];
         for (const item of response){
-          categories.push(new Category(item.id_category, item.name));
+          categories.push(new Category(item.id_category, item.title));
         }
         return Promise.resolve(categories);
       })

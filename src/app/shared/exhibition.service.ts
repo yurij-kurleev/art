@@ -6,7 +6,7 @@ import {AbstractService} from './abstract.service';
 export class ExhibitionService extends AbstractService {
 
   public getAll(): Promise<Exhibition[]> {
-    return this.httpService.get(this.baseUrl + 'getAll')
+    return this.httpService.get(this.baseUrl + 'exhibition/getAll')
         .then((response) => {
           const exhibitions: Exhibition[] = [];
           for (const item of response){

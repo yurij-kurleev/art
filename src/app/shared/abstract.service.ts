@@ -4,7 +4,7 @@ import {HttpService} from './http.service';
 @Injectable()
 export class AbstractService {
 
-  protected baseUrl = 'http://art-backend/server/exhibition/';
+  protected baseUrl = 'http://art-backend/server/';
 
   constructor(protected httpService: HttpService) { }
 

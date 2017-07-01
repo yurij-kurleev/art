@@ -2,18 +2,18 @@
     <h3 md-subheader class="categories-list-header">Categories</h3>
     <md-list-item [ngClass]="{'active': category.isActive}"
                   (click)="toggleCategoryState(category)" *ngFor="let category of categories">
-        <md-icon md-list-icon class="category-icon">brush</md-icon>
-        <h4 md-line class="category-title">Paintings</h4>
+        <!--<md-icon md-list-icon class="category-icon">brush</md-icon>-->
+        <h4 md-line class="category-title">{{category.name}}</h4>
     </md-list-item>
 </md-nav-list>
 <div class="content">
-    <md-card class="painting" *ngFor="let painting of paintings">
+    <md-card class="painting" *ngFor="let creation of creations">
         <md-card-header>
-            <md-card-title>{{painting.name}}</md-card-title>
+            <md-card-title>{{creation.name}}</md-card-title>
         </md-card-header>
-        <img md-card-image src="{{painting.img_url}}">
+        <img md-card-image src="{{creation.image_url}}">
         <md-card-content>
-            <p>{{painting.description}}</p>
+            <p>{{creation.description}}</p>
         </md-card-content>
     </md-card>
 </div>
