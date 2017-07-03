@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, NgZone, OnInit} from '@angular/core';
+import {AfterViewInit, Component, NgZone, OnDestroy, OnInit} from '@angular/core';
 import {Creation} from '../entites/creation';
 import {CreationService} from '../shared/creation.service';
 import {Category} from '../entites/category';
@@ -11,12 +11,12 @@ import {Observable} from 'rxjs/Observable';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     private currentCategoryId = null;
     private pageSize = 4;
     public creations: Array<Creation> = [];
     public categories: Array<Category> = [];
-    public onScroll;
+    private onScrollSubscription;
 
     constructor(private _creationService: CreationService,
                 private _categoryService: CategoryService,
@@ -31,23 +31,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-      Observable.fromEvent(window, 'scroll')
+      this.onScrollSubscription = Observable.fromEvent(window, 'scroll')
         .throttleTime(200)
         .subscribe(() => {
-          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            this._creationService
-              .getCreations(this.pageSize, this.creations.length, this.currentCategoryId)
-              .then((response) => {
-                if (response.length) {
-                  this.creations = this.creations.concat(response);
-                }
-              })
-              .catch((error) => console.log(error));
-          }
+          this.scrollHandler();
         });
     }
 
-    public toggleCategoryState(category: Category): void {
+
+  ngOnDestroy(): void {
+      this.onScrollSubscription.unsubscribe();
+  }
+
+  public toggleCategoryState(category: Category): void {
         for (const c of this.categories) {
             c.isActive = false;
         }
@@ -84,5 +80,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
                 console.log(errorResponse);
             }
         });
+    }
+
+    private scrollHandler() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        this._creationService
+          .getCreations(this.pageSize, this.creations.length, this.currentCategoryId)
+          .then((response) => {
+            if (response.length) {
+              this.creations = this.creations.concat(response);
+            }
+          })
+          .catch((error) => console.log(error));
+      }
     }
 }
