@@ -1,5 +1,7 @@
 <md-nav-list class="categories-list">
-    <h3 md-subheader class="categories-list-header">Categories</h3>
+    <h3 md-subheader class="categories-list-header" *ngIf="getCurrentLanguage()==languages[0]">Категории</h3>
+    <h3 md-subheader class="categories-list-header" *ngIf="getCurrentLanguage()==languages[1]">Categories</h3>
+    <h3 md-subheader class="categories-list-header" *ngIf="getCurrentLanguage()==languages[2]">Категорії</h3>
     <md-list-item [ngClass]="{'active': category.isActive}"
                   (click)="toggleCategoryState(category)" *ngFor="let category of categories">
         <!--<md-icon md-list-icon class="category-icon">brush</md-icon>-->

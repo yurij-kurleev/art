@@ -1,9 +1,22 @@
 <div class="my-container">
+  <md-select class="lang-select" (change) = "selectLanguage($event.value)" placeholder="Language">
+    <md-option *ngFor = "let language of languages;let i = index" [value]="i">{{language}}</md-option>
+  </md-select>
   <h1 class="h1-header"> Elena Schekina</h1>
-  <div class="top-menu">
-    <a href="#/home" class="menu-link">Home</a>
-    <a href="#/about" class="menu-link">About</a>
-    <a href="#/exhibitions" class="menu-link">Exhibitions</a>
+  <div class="top-menu" *ngIf="getCurrentLanguage()==languages[0]">
+    <a href="#/home" class="menu-link">Главная</a>
+    <a href="#/about" class="menu-link">О себе</a>
+    <a href="#/exhibitions" class="menu-link">Выставки</a>
+  </div>
+  <div class="top-menu" *ngIf="getCurrentLanguage()==languages[1]">
+      <a href="#/home" class="menu-link">Home</a>
+      <a href="#/about" class="menu-link">About</a>
+      <a href="#/exhibitions" class="menu-link">Exhibitions</a>
+  </div>
+  <div class="top-menu" *ngIf="getCurrentLanguage()==languages[2]">
+    <a href="#/home" class="menu-link">Головна</a>
+    <a href="#/about" class="menu-link">Про себе</a>
+    <a href="#/exhibitions" class="menu-link">Виставки</a>
   </div>
   <div class="container" id="main-content">
     <router-outlet></router-outlet>

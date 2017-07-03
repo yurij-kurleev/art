@@ -1,26 +1,30 @@
-import {AfterViewInit, Component, NgZone, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {Creation} from '../entites/creation';
 import {CreationService} from '../shared/creation.service';
 import {Category} from '../entites/category';
 import {CategoryService} from '../shared/category.service';
-import '../../../node_modules/rxjs/add/operator/throttleTime';
 import {Observable} from 'rxjs/Observable';
+import {CookieService} from 'angular2-cookie/services/cookies.service';
+import {LocaleUtil} from '../shared/locale.util';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
+export class HomeComponent extends LocaleUtil
+  implements OnInit, AfterViewInit, OnDestroy {
+
     private currentCategoryId = null;
     private pageSize = 4;
     public creations: Array<Creation> = [];
     public categories: Array<Category> = [];
     private onScrollSubscription;
 
-    constructor(private _creationService: CreationService,
-                private _categoryService: CategoryService,
-                private zone: NgZone) {
+    constructor(cookieService: CookieService,
+                private _creationService: CreationService,
+                private _categoryService: CategoryService) {
+      super(cookieService);
     }
 
     ngOnInit() {

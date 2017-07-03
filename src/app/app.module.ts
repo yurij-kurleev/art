@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
@@ -51,7 +51,8 @@ import {AbstractService} from './shared/abstract.service';
     HttpService,
     CreationService,
     AbstractService,
-    CategoryService
+    CategoryService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
