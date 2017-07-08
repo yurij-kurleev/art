@@ -3,6 +3,19 @@
   <md-input-container>
     <textarea mdInput placeholder="Название"></textarea>
   </md-input-container>
+  <md-input-container>
+    <textarea mdInput placeholder="Место проведения"></textarea>
+  </md-input-container>
+  <md-input-container>
+    <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+  </md-input-container>
+  <md-datepicker #picker></md-datepicker>
+  <md-input-container>
+    <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
+    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+  </md-input-container>
+  <md-datepicker #picker></md-datepicker>
 </form>
 <div class="exhibitions-block">
   <div class="exhibition" *ngFor="let exhibition of exhibitions">

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MdAutocompleteModule, MdButtonModule, MdCheckboxModule, MdInputModule, MdRadioModule,
-  MdSelectModule, MdIconModule, MdCardModule, MdListModule
+  MdSelectModule, MdIconModule, MdCardModule, MdListModule, MdDatepickerModule, MdNativeDateModule
 } from '@angular/material';
 import {CommonModule} from '@angular/common';
 import {PreloadAllModules, RouterModule} from '@angular/router';
@@ -39,6 +39,8 @@ import { AdminExhibitionsComponent } from './admin-exhibitions/admin-exhibitions
     MdCheckboxModule,
     MdInputModule,
     MdRadioModule,
+    MdDatepickerModule,
+    MdNativeDateModule,
     CommonModule,
     ReactiveFormsModule,
     MdAutocompleteModule,
