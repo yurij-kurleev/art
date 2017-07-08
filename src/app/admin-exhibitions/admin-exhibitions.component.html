@@ -1,21 +1,21 @@
-<button md-raised-button class="add-button">Добавить</button>
 <form>
   <md-input-container>
-    <textarea mdInput placeholder="Название"></textarea>
+    <input mdInput placeholder="Название">
   </md-input-container>
   <md-input-container>
     <textarea mdInput placeholder="Место проведения"></textarea>
   </md-input-container>
   <md-input-container>
-    <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
-    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+    <input mdInput [mdDatepicker]="from" [(ngModel)]="fromDate" placeholder="Choose a date" name="from">
+    <button mdSuffix [mdDatepickerToggle]="from"></button>
   </md-input-container>
-  <md-datepicker #picker></md-datepicker>
+  <md-datepicker #from></md-datepicker>
   <md-input-container>
-    <input mdInput [mdDatepicker]="picker" placeholder="Choose a date">
-    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+    <input mdInput [mdDatepicker]="till" [(ngModel)]="tillDate" placeholder="Choose a date" name="from">
+    <button mdSuffix [mdDatepickerToggle]="till"></button>
   </md-input-container>
-  <md-datepicker #picker></md-datepicker>
+  <md-datepicker #till></md-datepicker>
+  <button md-raised-button class="add-button">Добавить</button>
 </form>
 <div class="exhibitions-block">
   <div class="exhibition" *ngFor="let exhibition of exhibitions">
