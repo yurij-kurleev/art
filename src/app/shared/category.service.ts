@@ -10,7 +10,9 @@ export class CategoryService extends AbstractService {
       .then((response) => {
         const categories: Category[] = [];
         for (const item of response){
-          categories.push(new Category(item.id_category, item.title));
+          categories.push(
+            new Category(item.id_category, item.title_eng, item.title_ru, item.title_ua)
+          );
         }
         return Promise.resolve(categories);
       })

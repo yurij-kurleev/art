@@ -1,26 +1,30 @@
-import {AfterViewInit, Component, NgZone, OnInit} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
 import {Creation} from '../entites/creation';
 import {CreationService} from '../shared/creation.service';
 import {Category} from '../entites/category';
 import {CategoryService} from '../shared/category.service';
-import '../../../node_modules/rxjs/add/operator/throttleTime';
 import {Observable} from 'rxjs/Observable';
+import {CookieService} from 'angular2-cookie/services/cookies.service';
+import {LocaleUtil} from '../shared/locale.util';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent extends LocaleUtil
+  implements OnInit, AfterViewInit, OnDestroy {
+
     private currentCategoryId = null;
     private pageSize = 4;
     public creations: Array<Creation> = [];
     public categories: Array<Category> = [];
-    public onScroll;
+    private onScrollSubscription;
 
-    constructor(private _creationService: CreationService,
-                private _categoryService: CategoryService,
-                private zone: NgZone) {
+    constructor(cookieService: CookieService,
+                private _creationService: CreationService,
+                private _categoryService: CategoryService) {
+      super(cookieService);
     }
 
     ngOnInit() {
@@ -31,23 +35,19 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit() {
-      Observable.fromEvent(window, 'scroll')
+      this.onScrollSubscription = Observable.fromEvent(window, 'scroll')
         .throttleTime(200)
         .subscribe(() => {
-          if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-            this._creationService
-              .getCreations(this.pageSize, this.creations.length, this.currentCategoryId)
-              .then((response) => {
-                if (response.length) {
-                  this.creations = this.creations.concat(response);
-                }
-              })
-              .catch((error) => console.log(error));
-          }
+          this.scrollHandler();
         });
     }
 
-    public toggleCategoryState(category: Category): void {
+
+  ngOnDestroy(): void {
+      this.onScrollSubscription.unsubscribe();
+  }
+
+  public toggleCategoryState(category: Category): void {
         for (const c of this.categories) {
             c.isActive = false;
         }
@@ -84,5 +84,18 @@ export class HomeComponent implements OnInit, AfterViewInit {
                 console.log(errorResponse);
             }
         });
+    }
+
+    private scrollHandler() {
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        this._creationService
+          .getCreations(this.pageSize, this.creations.length, this.currentCategoryId)
+          .then((response) => {
+            if (response.length) {
+              this.creations = this.creations.concat(response);
+            }
+          })
+          .catch((error) => console.log(error));
+      }
     }
 }

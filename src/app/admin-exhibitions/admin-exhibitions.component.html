@@ -1,0 +1,14 @@
+<button md-raised-button class="add-button">Добавить</button>
+<form>
+  <md-input-container>
+    <textarea mdInput placeholder="Название"></textarea>
+  </md-input-container>
+</form>
+<div class="exhibitions-block">
+  <div class="exhibition" *ngFor="let exhibition of exhibitions">
+    <div class="title">"{{exhibition.title}}"</div>
+    <div class="place">{{exhibition.place}}</div>
+    <div class="date">{{exhibition.fromDate * 1000 | date}}</div>
+    <div class="date">{{exhibition.tillDate * 1000| date}}</div>
+  </div>
+</div>

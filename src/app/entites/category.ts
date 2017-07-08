@@ -6,12 +6,16 @@ export interface ICategory {
 
 export class Category {
   id: number;
-  name: string;
+  nameEng: string;
+  nameRu: string;
+  nameUa: string;
   isActive: boolean;
 
-  constructor(id?: number, name?: string) {
+  constructor(id?: number, nameEng?: string, nameRu?: string, nameUa?: string) {
     this.id = id || 0;
-    this.name = name || '';
+    this.nameEng = nameEng || '';
+    this.nameRu = nameRu || '';
+    this.nameUa = nameUa || '';
     this.isActive = false;
   }
 }
