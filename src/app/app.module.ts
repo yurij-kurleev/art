@@ -20,13 +20,15 @@ import {HttpService} from './shared/http.service';
 import {CreationService} from './shared/creation.service';
 import {CategoryService} from './shared/category.service';
 import {AbstractService} from './shared/abstract.service';
+import { AdminExhibitionsComponent } from './admin-exhibitions/admin-exhibitions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    ExhibitionsComponent
+    ExhibitionsComponent,
+    AdminExhibitionsComponent
   ],
   imports: [
     BrowserModule,
