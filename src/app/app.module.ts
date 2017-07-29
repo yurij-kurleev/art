@@ -21,6 +21,7 @@ import {CreationService} from './shared/creation.service';
 import {CategoryService} from './shared/category.service';
 import {AbstractService} from './shared/abstract.service';
 import { AdminExhibitionsComponent } from './admin-exhibitions/admin-exhibitions.component';
+import { AdminCreationsComponent } from './admin-creations/admin-creations.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AdminExhibitionsComponent } from './admin-exhibitions/admin-exhibitions
     HomeComponent,
     AboutComponent,
     ExhibitionsComponent,
-    AdminExhibitionsComponent
+    AdminExhibitionsComponent,
+    AdminCreationsComponent
   ],
   imports: [
     BrowserModule,
