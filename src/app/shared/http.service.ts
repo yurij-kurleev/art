@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Headers, Http, RequestOptions} from '@angular/http';
 import 'rxjs/Rx';
 
 @Injectable()
@@ -12,6 +12,7 @@ export class HttpService {
         return this._http.get(url)
             .toPromise()
             .then((response) => {
+            console.log(response);
                 return Promise.resolve(response.json());
             })
             .catch((error) => {
@@ -20,9 +21,16 @@ export class HttpService {
     }
 
     public add(url: string, data: any): Promise<any> {
-        return this._http.post(url, data)
+        const headers = new Headers();
+        headers.append('Enctype', 'multipart/form-data');
+        headers.append('Accept', 'application/json');
+        const options = new RequestOptions({headers: headers});
+        const payload = new FormData();
+        payload.append('data', JSON.stringify(data));
+        return this._http.post(url, payload, options)
             .toPromise()
             .then((response) => {
+                console.log(response);
                 return Promise.resolve(response.json());
             })
             .catch((error) => {
@@ -42,7 +50,7 @@ export class HttpService {
     }
 
     public update(url: string, data: any): Promise<any> {
-        return this._http.put(url, data)
+        return this._http.post(url, data)
             .toPromise()
             .then((response) => {
                 return Promise.resolve(response.json());

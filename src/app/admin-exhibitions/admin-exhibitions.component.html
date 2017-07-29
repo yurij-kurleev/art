@@ -1,21 +1,31 @@
 <form>
   <md-input-container>
-    <input mdInput placeholder="Название">
+    <input mdInput placeholder="Название"
+           [(ngModel)]="newExhibition.title"
+           name="title">
   </md-input-container>
   <md-input-container>
-    <textarea mdInput placeholder="Место проведения"></textarea>
+    <input mdInput placeholder="Место проведения"
+           [(ngModel)]="newExhibition.place"
+           name="place"/>
   </md-input-container>
   <md-input-container>
-    <input mdInput [mdDatepicker]="from" [(ngModel)]="fromDate" placeholder="Choose a date" name="from">
+    <input mdInput [mdDatepicker]="from"
+           [(ngModel)]="fromDate"
+           disabled
+           placeholder="Дата начала" name="from">
     <button mdSuffix [mdDatepickerToggle]="from"></button>
   </md-input-container>
-  <md-datepicker #from></md-datepicker>
+  <md-datepicker #from (selectedChanged)="convertTimeToTimestamp($event)"></md-datepicker>
   <md-input-container>
-    <input mdInput [mdDatepicker]="till" [(ngModel)]="tillDate" placeholder="Choose a date" name="from">
+    <input mdInput [mdDatepicker]="till"
+           [(ngModel)]="tillDate"
+           disabled
+           placeholder="Дата окончания" name="till">
     <button mdSuffix [mdDatepickerToggle]="till"></button>
   </md-input-container>
-  <md-datepicker #till></md-datepicker>
-  <button md-raised-button class="add-button">Добавить</button>
+  <md-datepicker #till (selectedChanged)="convertTimeToTimestamp($event)"></md-datepicker>
+  <button md-raised-button class="add-button" (click)="onSubmit()" [disabled]="!isValidForm()">Добавить</button>
 </form>
 <div class="exhibitions-block">
   <div class="exhibition" *ngFor="let exhibition of exhibitions">

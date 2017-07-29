@@ -16,7 +16,7 @@
     font-size: 4rem;
 }
 
-.top-menu{
+.top-menu, .admin-menu{
     font-size: 2rem;
     text-align: center;
     margin: 0 20%;
