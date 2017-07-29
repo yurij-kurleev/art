@@ -4,10 +4,9 @@
     <h3 md-subheader class="categories-list-header" *ngIf="getCurrentLanguage()==languages[2]">Категорії</h3>
     <md-list-item [ngClass]="{'active': category.isActive}"
                   (click)="toggleCategoryState(category)" *ngFor="let category of categories">
-        <!--<md-icon md-list-icon class="category-icon">brush</md-icon>-->
         <h4 md-line class="category-title" *ngIf="getCurrentLanguage()==languages[0]">{{category.nameRu}}</h4>
         <h4 md-line class="category-title" *ngIf="getCurrentLanguage()==languages[1]">{{category.nameEng}}</h4>
-        <h4 md-line class="category-title" *ngIf="getCurrentLanguage()==languages[3]">{{category.nameEng}}</h4>
+        <h4 md-line class="category-title" *ngIf="getCurrentLanguage()==languages[2]">{{category.nameUa}}</h4>
     </md-list-item>
 </md-nav-list>
 <div class="content">
