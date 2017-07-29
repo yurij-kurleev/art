@@ -27,7 +27,8 @@ export class AdminExhibitionsComponent implements OnInit {
         this.newExhibition.tillDate = this.convertTimeToTimestamp(this.tillDate);
         this._exhibitionService.addExhibition(this.newExhibition)
             .then((exhibition) => {
-                console.log(exhibition);
+                this.exhibitions.unshift(exhibition);
+                this.newExhibition = new Exhibition();
             })
             .catch((error) => {
                 console.log(error);
@@ -57,5 +58,19 @@ export class AdminExhibitionsComponent implements OnInit {
             .catch((error) => {
                 console.log(error);
             });
+    }
+
+    public deleteExhibition (exhibition: Exhibition) {
+        const decision = confirm('Are you sure?');
+        if (decision) {
+            this._exhibitionService.deleteExhibition(exhibition.idExhibition)
+                .then((response) => {
+                    const index = this.exhibitions.indexOf(exhibition);
+                    this.exhibitions.splice(index, 1);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+        }
     }
 }

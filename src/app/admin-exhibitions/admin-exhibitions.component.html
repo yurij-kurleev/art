@@ -31,6 +31,7 @@
   <div class="exhibition" *ngFor="let exhibition of exhibitions">
     <div class="title">"{{exhibition.title}}"</div>
     <div class="place">{{exhibition.place}}</div>
+    <md-icon (click)="deleteExhibition(exhibition)"> delete_forever</md-icon>
     <div class="date">{{exhibition.fromDate * 1000 | date}}</div>
     <div class="date">{{exhibition.tillDate * 1000| date}}</div>
   </div>

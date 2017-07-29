@@ -50,7 +50,7 @@ import { AdminCreationsComponent } from './admin-creations/admin-creations.compo
     MdIconModule,
     MdCardModule,
     MdListModule,
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules })
   ],
   providers: [
     ExhibitionService,

@@ -23,7 +23,31 @@ export class ExhibitionService extends AbstractService {
     public addExhibition (data) {
         return this.httpService.add(this.baseUrl + 'exhibition/add', data)
             .then((response) => {
-                return Promise.resolve(<Exhibition>response);
+                const exhibition = new Exhibition(
+                    response.id_exhibition,
+                    response.name,
+                    response.place,
+                    response.from_datetime,
+                    response.till_datetime,
+                );
+                return Promise.resolve(exhibition);
+            })
+            .catch((error) => {
+                return Promise.reject(error);
+            });
+    }
+
+    public deleteExhibition (id: number) {
+        return this.httpService.remove(this.baseUrl + 'exhibition/delete/' + id)
+            .then((response) => {
+                const exhibition = new Exhibition(
+                    response.id_exhibition,
+                    response.name,
+                    response.place,
+                    response.from_datetime,
+                    response.till_datetime,
+                );
+                return Promise.resolve(exhibition);
             })
             .catch((error) => {
                 return Promise.reject(error);

@@ -21,3 +21,12 @@ form{
 md-input-container {
     flex: 1 1 100%;
 }
+
+md-icon{
+    cursor: pointer;
+    float: right;
+}
+
+md-icon:hover {
+    color: red;
+}
