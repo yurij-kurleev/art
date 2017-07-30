@@ -1,0 +1,71 @@
+.add-button {
+    margin-right: 2%;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #429eff;
+}
+
+form{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    max-width: 60%;
+    margin-left: 20%;
+}
+
+.exhibitions-block{
+    max-width: 60%;
+    margin-left: 20%
+}
+
+md-input-container, md-select, #file {
+    flex: 1 1 100%;
+}
+
+md-select{
+    margin: 25px 0;
+}
+
+md-icon{
+    cursor: pointer;
+    float: right;
+}
+
+md-icon:hover {
+    color: red;
+}
+
+.content{
+    display: flex;
+    flex: 1 100%;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    max-width: 80%;
+    margin-left: 15%;
+}
+
+.painting{
+    max-width: 35%;
+    margin: 20px 3%;
+    cursor: pointer;
+    transition: all .4s;
+}
+
+.painting:hover{
+    opacity: .7;
+}
+
+md-card-header{
+    display: flex;
+    justify-content: space-between;
+    flex: 1 100%;
+}
+
+md-icon{
+    cursor: pointer;
+    float: right;
+}
+
+md-icon:hover {
+    color: red;
+}

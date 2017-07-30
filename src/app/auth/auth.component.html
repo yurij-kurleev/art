@@ -1,0 +1,14 @@
+<form>
+    <md-input-container>
+        <input mdInput placeholder="Логин"
+               [(ngModel)]="login"
+               name="login">
+    </md-input-container>
+    <md-input-container>
+        <input mdInput placeholder="Пароль"
+               [(ngModel)]="password"
+               type="password"
+               name="password">
+    </md-input-container>
+    <button md-raised-button class="add-button" (click)="onAuth()">Авторизация</button>
+</form>

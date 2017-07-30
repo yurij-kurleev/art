@@ -9,7 +9,7 @@ export class CreationService extends AbstractService {
   public baseUrl = this.baseUrl + 'painting/';
 
   public getAll(): Promise<Creation[]> {
-    const url: string = this.baseUrl + `painting/getAll/`;
+    const url: string = this.baseUrl + `getAll`;
     return this.httpService.get(url)
       .then(response => {
         const creations: Array<Creation> = [];
@@ -32,7 +32,7 @@ export class CreationService extends AbstractService {
 
     public getCreations(limit: number, offset: number,
                         categoryId?: number): Promise<Creation[]> {
-        let url: string = this.baseUrl + `painting/getByPages/${limit}/${offset}/`;
+        let url: string = this.baseUrl + `getByPages/${limit}/${offset}/`;
         if (categoryId) {
             url += categoryId;
         }

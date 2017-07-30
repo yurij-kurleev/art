@@ -22,6 +22,9 @@ import {CategoryService} from './shared/category.service';
 import {AbstractService} from './shared/abstract.service';
 import { AdminExhibitionsComponent } from './admin-exhibitions/admin-exhibitions.component';
 import { AdminCreationsComponent } from './admin-creations/admin-creations.component';
+import { AuthComponent } from './auth/auth.component';
+import {AdminGuard} from './shared/admin.guard';
+import {AuthService} from './shared/auth.service';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { AdminCreationsComponent } from './admin-creations/admin-creations.compo
     AboutComponent,
     ExhibitionsComponent,
     AdminExhibitionsComponent,
-    AdminCreationsComponent
+    AdminCreationsComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +62,9 @@ import { AdminCreationsComponent } from './admin-creations/admin-creations.compo
     CreationService,
     AbstractService,
     CategoryService,
-    CookieService
+    CookieService,
+    AdminGuard,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,18 @@
+.add-button {
+    margin-right: 2%;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #429eff;
+}
+
+form{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    max-width: 60%;
+    margin-left: 20%;
+}
+
+md-input-container {
+    flex: 1 1 100%;
+}
