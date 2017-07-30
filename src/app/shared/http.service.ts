@@ -20,12 +20,15 @@ export class HttpService {
             });
     }
 
-    public add(url: string, data: any): Promise<any> {
+    public add(url: string, data: any, file?: File): Promise<any> {
         const headers = new Headers();
         headers.append('Enctype', 'multipart/form-data');
         headers.append('Accept', 'application/json');
         const options = new RequestOptions({headers: headers});
         const payload = new FormData();
+        if (file) {
+          payload.append('file', file, file.name);
+        }
         payload.append('data', JSON.stringify(data));
         return this._http.post(url, payload, options)
             .toPromise()

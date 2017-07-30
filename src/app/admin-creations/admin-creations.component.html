@@ -1,3 +1,27 @@
-<p>
-  admin-creations works!
-</p>
+<form>
+  <md-input-container>
+    <input mdInput placeholder="Название"
+           [(ngModel)]="newCreation.name"
+           name="name">
+  </md-input-container>
+  <md-input-container>
+    <input mdInput placeholder="Описание"
+           [(ngModel)]="newCreation.description"
+           name="description"/>
+  </md-input-container>
+  <md-select placeholder="Категория">
+    <md-option *ngFor="let category of categories" [value]="category.id">{{ category.title_ru }}</md-option>
+  </md-select>
+  <button md-raised-button class="add-button" (click)="onSubmit()" [disabled]="!isValidForm()">Добавить</button>
+</form>
+<div class="content">
+  <md-card class="painting" *ngFor="let creation of creations">
+    <md-card-header>
+      <md-card-title>{{creation.name}}</md-card-title>
+    </md-card-header>
+    <img md-card-image src="{{creation.image_url}}">
+    <md-card-content>
+      <p>{{creation.description}}</p>
+    </md-card-content>
+  </md-card>
+</div>
