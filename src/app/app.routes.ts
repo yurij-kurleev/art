@@ -6,6 +6,7 @@ import {AdminExhibitionsComponent} from './admin-exhibitions/admin-exhibitions.c
 import {AdminCreationsComponent} from './admin-creations/admin-creations.component';
 import {AuthComponent} from './auth/auth.component';
 import {AdminGuard} from './shared/admin.guard';
+import {NoContentComponent} from './no-content/no-content.component';
 
 export const ROUTES: Routes = [
     { path: '',      component: HomeComponent },
@@ -14,7 +15,6 @@ export const ROUTES: Routes = [
     { path: 'about',  component: AboutComponent },
     { path: 'admin/exhibitions', component: AdminExhibitionsComponent, canActivate: [AdminGuard] },
     { path: 'admin/creations', component: AdminCreationsComponent, canActivate: [AdminGuard] },
-    
     { path: 'auth', component: AuthComponent },
-    { path: '**',    component: HomeComponent },
+    { path: '**',    component: NoContentComponent },
 ];

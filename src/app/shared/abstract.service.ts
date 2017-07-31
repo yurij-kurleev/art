@@ -5,6 +5,7 @@ import {HttpService} from './http.service';
 export class AbstractService {
 
   protected baseUrl = 'http://art-backend/server/';
+  public isCorrectUrl = true;
 
   constructor(protected httpService: HttpService) { }
 

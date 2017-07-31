@@ -25,6 +25,7 @@ import { AdminCreationsComponent } from './admin-creations/admin-creations.compo
 import { AuthComponent } from './auth/auth.component';
 import {AdminGuard} from './shared/admin.guard';
 import {AuthService} from './shared/auth.service';
+import { NoContentComponent } from './no-content/no-content.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {AuthService} from './shared/auth.service';
     ExhibitionsComponent,
     AdminExhibitionsComponent,
     AdminCreationsComponent,
-    AuthComponent
+    AuthComponent,
+    NoContentComponent
   ],
   imports: [
     BrowserModule,

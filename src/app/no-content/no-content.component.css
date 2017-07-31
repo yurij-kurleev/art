@@ -1,0 +1,13 @@
+h1 {
+    font-size: 5rem;
+    text-align: center;
+}
+
+a {
+    display: table;
+    margin: auto;
+    font-size: 2rem;
+    text-decoration: none;
+    font-family: Roboto;
+    color: #571cfb;
+}

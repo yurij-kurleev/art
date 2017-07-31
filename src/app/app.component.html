@@ -1,19 +1,22 @@
 <div class="my-container" *ngIf="!isAdmin()">
-  <md-select class="lang-select" (change) = "selectLanguage($event.value)" placeholder="Language">
+  <md-select class="lang-select"
+             (change) = "selectLanguage($event.value)"
+             *ngIf="isCorrectUrl()"
+             placeholder="Language">
     <md-option *ngFor = "let language of languages;let i = index" [value]="i">{{language}}</md-option>
   </md-select>
   <h1 class="h1-header"> Elena Shchokina</h1>
-  <div class="top-menu" *ngIf="getCurrentLanguage()==languages[0]">
+  <div class="top-menu" *ngIf="getCurrentLanguage()==languages[0] && isCorrectUrl()">
     <a [routerLink]="['/home']" class="menu-link">Главная</a>
     <a [routerLink]="['/about']" class="menu-link">О себе</a>
     <a [routerLink]="['/exhibitions']" class="menu-link">Выставки</a>
   </div>
-  <div class="top-menu" *ngIf="getCurrentLanguage()==languages[1]">
+  <div class="top-menu" *ngIf="getCurrentLanguage()==languages[1] && isCorrectUrl()">
       <a [routerLink]="['/home']" class="menu-link">Home</a>
       <a [routerLink]="['/about']" class="menu-link">About</a>
       <a [routerLink]="['/exhibitions']" class="menu-link">Exhibitions</a>
   </div>
-  <div class="top-menu" *ngIf="getCurrentLanguage()==languages[2]">
+  <div class="top-menu" *ngIf="getCurrentLanguage()==languages[2] && isCorrectUrl()">
     <a [routerLink]="['/home']" class="menu-link">Головна</a>
     <a [routerLink]="['/about']" class="menu-link">Про себе</a>
     <a [routerLink]="['/exhibitions']" class="menu-link">Виставки</a>
@@ -23,7 +26,7 @@
   </div>
 </div>
 <div class="container" *ngIf="isAdmin()">
-  <div class="admin-menu" *ngIf="getCurrentLanguage()==languages[0]">
+  <div class="admin-menu" *ngIf="isCorrectUrl()">
     <a [routerLink]="['/admin/exhibitions']" class="menu-link">Выставки</a>
     <a [routerLink]="['/admin/creations']" class="menu-link">Произведения</a>
   </div>
