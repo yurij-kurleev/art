@@ -46,3 +46,16 @@
 .active:hover{
     background-color: #7898f8;
 }
+
+@media (max-width: 480px) {
+  .painting{
+    min-width: 90%;
+    margin: 10px 3%;
+    cursor: pointer;
+    transition: all .4s;
+  }
+
+  .categories-list {
+    min-width: 90%;
+  }
+}
