@@ -3,7 +3,7 @@ import {Headers, Http, RequestOptions} from '@angular/http';
 
 @Injectable()
 export class AuthService {
-    public baseUrl = 'http://art-backend/server/user/me';
+    public baseUrl = 'http://shchokina.com/server/user/me';
 
     constructor (private _http: Http) {}
 

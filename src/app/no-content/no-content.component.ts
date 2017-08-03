@@ -14,5 +14,4 @@ export class NoContentComponent implements OnInit {
     ngOnInit() {
         setTimeout(() => this.abstractService.isCorrectUrl = false);
     }
-
 }

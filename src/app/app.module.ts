@@ -26,6 +26,7 @@ import { AuthComponent } from './auth/auth.component';
 import {AdminGuard} from './shared/admin.guard';
 import {AuthService} from './shared/auth.service';
 import { NoContentComponent } from './no-content/no-content.component';
+import {CookieOptions} from 'angular2-cookie/core';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { NoContentComponent } from './no-content/no-content.component';
     MdIconModule,
     MdCardModule,
     MdListModule,
-    RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   providers: [
     ExhibitionService,
@@ -65,6 +66,7 @@ import { NoContentComponent } from './no-content/no-content.component';
     AbstractService,
     CategoryService,
     CookieService,
+    { provide: CookieOptions, useValue: {} },
     AdminGuard,
     AuthService
   ],
